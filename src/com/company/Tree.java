@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Tree<T extends Comparable> {
 
     private Node head = null;
@@ -52,6 +55,36 @@ public class Tree<T extends Comparable> {
             } else {
                 return 1 + b;
             }
+        }
+    }
+
+    public void print(){
+        print(head, 0);
+    }
+
+    private void print(Node current, int depth) {
+        if (current != null) {
+            print(current.getRight(), depth+1);
+            for (int i = depth*5; i>0; i--){
+                System.out.print(" ");
+            }
+            System.out.println(current.getObj()+" "+depth);
+            print(current.getLeft(), depth+1);
+        }
+    }
+
+    public List<Node> treeToSortedList() {
+        List<Node> tree = new ArrayList<>();
+        treeToSortedListInner(head, tree);
+        return tree;
+    }
+
+
+    private void treeToSortedListInner(Node current, List<Node> tree) {
+        if (current != null) {
+            treeToSortedListInner(current.getRight(), tree);
+            tree.add(current);
+            treeToSortedListInner(current.getLeft(), tree);
         }
     }
 }

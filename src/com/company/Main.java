@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -15,8 +17,9 @@ public class Main {
 //        tree.add(15);
 
         tree.addAll(8, 4, 7, 13, 12, 9, 2, 3, 10);
-
-        System.out.println(tree.depth());
+//        System.out.println(tree.depth());
+//        List<Node> nodeList  = tree.treeToSortedList();
+        tree.print();
         int i = 0;
     }
 }
